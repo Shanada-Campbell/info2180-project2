@@ -1,3 +1,5 @@
+//Additional Feature
+//Multiple Backgrounds
 let ePiece = {
     x: 300, 
     y: 300
@@ -5,13 +7,43 @@ let ePiece = {
 window.onload = function(){
     let pArea = document.getElementById("puzzlearea");
     let pPiece = pArea.getElementsByTagName("div");
+    let div_control = document.getElementById("controls");
+	let select = document.createElement("select");
+    let change_image = document.createElement("button");
+    let options = ["Frog", "Coding", "Crying", "Dinosaur", "Normal"];
+	let background_value = Math.floor(Math.random()*options.length);
+    let image = options[background_value];
+    for(let index=0; index < pPiece.length;index++){
+        if(image === "Frog"){
+			pPiece[index].style.backgroundImage = "url(background.jpg)";
+		}
+		if(image === "Coding"){
+			pPiece[index].style.backgroundImage = "url(coding.jpg)";
+		}
+		if(image === "Crying"){
+			pPiece[index].style.backgroundImage = "url(crying.jpg)";
+		}
+		if(image === "Dinosaur"){
+			pPiece[index].style.backgroundImage = "url(dinosaur.jpg)";
+        }
+        if(image === "Normal"){
+			pPiece[index].style.backgroundImage = "url(normal.jpg)";
+        }
+    }
+    for(let index=0;index<options.length;index++){
+        let option = document.createElement("option");
+        option.text = options[index];
+        select.add(option);
+    }
+    div_control.appendChild(select);
+    change_image.innerHTML = "Change Image";
+    div_control.appendChild(change_image);
     for (let index = 0; index < pPiece.length; index++){
         pPiece[index].setAttribute("class", "puzzlepiece");
-        pPiece[index].style.backgroundImage = "url(background.jpg)";
         pPiece[index].style.top = (Math.floor(index / 4)) * 100 + "px";
         pPiece[index].style.left = ( index % 4 ) * 100 + "px";
         pPiece[index].style.backgroundPosition = "-"+pPiece[index].style.left+" "+"-"+pPiece[index].style.top;
-
+        
         pPiece[index].addEventListener("mouseover", function(){
             if (Math.abs(parseInt(pPiece[index].style.left) - ePiece.x) === 100 && parseInt(pPiece[index].style.top) === ePiece.y){
                 pPiece[index].setAttribute("class", "puzzlepiece movablepiece");
@@ -54,4 +86,24 @@ window.onload = function(){
             move_piece(moveable_pieces[random_index]); //moves the selected piece.
         }
     });
+    change_image.addEventListener("click",function(){
+		for(let index=0;index<pPiece.length;index++){
+			let choice = select.options[select.selectedIndex];
+			if(choice.text === "Frog"){
+                pPiece[index].style.backgroundImage = "url(background.jpg)";
+            }
+            if(choice.text === "Coding"){
+                pPiece[index].style.backgroundImage = "url(coding.jpg)";
+            }
+            if(choice.text === "Crying"){
+                pPiece[index].style.backgroundImage = "url(crying.jpg)";
+            }
+            if(choice.text === "Dinosaur"){
+                pPiece[index].style.backgroundImage = "url(dinosaur.jpg)";
+            }
+            if(choice.text === "Normal"){
+                pPiece[index].style.backgroundImage = "url(normal.jpg)";
+            }
+		}
+	});
 }
