@@ -10,24 +10,27 @@ window.onload = function(){
     let div_control = document.getElementById("controls");
 	let select = document.createElement("select");
     let change_image = document.createElement("button");
-    let options = ["Frog", "Coding", "Crying", "Dinosaur", "Normal"];
+    let options = ["Love", "Prayer", "Victor", "SuperMan", "Frog", "Cat"];
 	let background_value = Math.floor(Math.random()*options.length);
     let image = options[background_value];
     for(let index=0; index < pPiece.length;index++){
-        if(image === "Frog"){
+		if(image === "Love"){
+			pPiece[index].style.backgroundImage = "url(loveOfGod.jpg)";
+        }
+        if(image === "Prayer"){
+			pPiece[index].style.backgroundImage = "url(theWord.jpg)";
+		}
+		if(image === "Victor"){
+			pPiece[index].style.backgroundImage = "url(jesusUp.jpg)";
+        }
+        if(image === "SuperMan"){
 			pPiece[index].style.backgroundImage = "url(background.jpg)";
 		}
-		if(image === "Coding"){
-			pPiece[index].style.backgroundImage = "url(coding.jpg)";
-		}
-		if(image === "Crying"){
-			pPiece[index].style.backgroundImage = "url(crying.jpg)";
-		}
-		if(image === "Dinosaur"){
-			pPiece[index].style.backgroundImage = "url(dinosaur.jpg)";
+        if(image === "Frog"){
+			pPiece[index].style.backgroundImage = "url(frog.jpg)";
         }
-        if(image === "Normal"){
-			pPiece[index].style.backgroundImage = "url(normal.jpg)";
+        if(image === "Cat"){
+			pPiece[index].style.backgroundImage = "url(coolcat.jpg)";
         }
     }
     for(let index=0;index<options.length;index++){
@@ -89,20 +92,23 @@ window.onload = function(){
     change_image.addEventListener("click",function(){
 		for(let index=0;index<pPiece.length;index++){
 			let choice = select.options[select.selectedIndex];
-			if(choice.text === "Frog"){
+            if(choice.text === "Love"){
+                pPiece[index].style.backgroundImage = "url(loveOfGod.jpg)";
+            }
+            if(choice.text === "Prayer"){
+                pPiece[index].style.backgroundImage = "url(theWord.jpg)";
+            }
+            if(choice.text === "Victor"){
+                pPiece[index].style.backgroundImage = "url(jesusUp.jpg)";
+            }
+            if(choice.text === "SuperMan"){
                 pPiece[index].style.backgroundImage = "url(background.jpg)";
             }
-            if(choice.text === "Coding"){
-                pPiece[index].style.backgroundImage = "url(coding.jpg)";
+            if(choice.text === "Frog"){
+                pPiece[index].style.backgroundImage = "url(frog.jpg)";
             }
-            if(choice.text === "Crying"){
-                pPiece[index].style.backgroundImage = "url(crying.jpg)";
-            }
-            if(choice.text === "Dinosaur"){
-                pPiece[index].style.backgroundImage = "url(dinosaur.jpg)";
-            }
-            if(choice.text === "Normal"){
-                pPiece[index].style.backgroundImage = "url(normal.jpg)";
+            if(choice.text === "Cat"){
+                pPiece[index].style.backgroundImage = "url(coolcat.jpg)";
             }
 		}
 	});
